@@ -1,0 +1,152 @@
+/* Simple, clean styling (no frameworks) */
+:root{
+  /* Vintage brown theme */
+  --bg:#f3e9dc;          /* parchment background */
+  --card:#e6d3b3;        /* light vintage card */
+  --text:#3e2f1c;        /* dark brown text */
+  --muted:#8b7355;
+  
+  /* Heritage accent colors */
+  --accent:#8b5e3c;      /* classic brown */
+  --accent2:#c19a6b;     /* antique gold */
+  
+  --border:rgba(62,47,28,0.15);
+  --shadow: 0 8px 20px rgba(62,47,28,0.15);
+  --radius: 18px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background: radial-gradient(1200px 500px at 20% 0%, rgba(142, 88, 8, 0.656), transparent 60%),
+              radial-gradient(1000px 600px at 80% 10%, rgba(250, 180, 139, 0.691), transparent 60%),
+              var(--bg);
+  color:var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a{color:inherit; text-decoration:none}
+.container{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:18px 40px;
+  flex:1;
+}
+.nav{
+  position:sticky; top:0; z-index:10;
+  backdrop-filter: blur(10px);
+  background: rgba(67, 25, 1, 0.522);
+  border-bottom:1px solid var(--border);
+}
+.navInner{display:flex; align-items:center; gap:14px; padding:14px 18px}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:0.3px}
+.badge{
+  font-size:12px; color:#001018;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  padding:3px 10px; border-radius:999px;
+}
+.navLinks{display:flex; gap:12px; flex-wrap:wrap; margin-left:auto}
+.pill{
+  padding:10px 12px; border:1px solid var(--border);
+  border-radius:999px; color:var(--text);
+  transition: transform .08s ease, border-color .15s ease;
+}
+.pill:hover{transform: translateY(-1px); border-color: rgba(110,231,255,0.45)}
+.pillActive{border-color: rgba(67, 3, 3, 0.65); box-shadow: 0 0 0 2px rgba(110,231,255,0.08) inset}
+.btn{
+  cursor:pointer;
+  border:1px solid var(--border);
+  background: linear-gradient(90deg, rgba(98, 3, 3, 0.718), rgba(150, 92, 5, 0.72));
+  color:var(--text);
+  padding:10px 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.btnGhost{
+  cursor:pointer;
+  border:1px solid var(--border);
+  background: transparent;
+  color:var(--text);
+  padding:10px 12px;
+  border-radius: 12px;
+}
+.grid{display:grid; gap:14px}
+.grid2{grid-template-columns: repeat(2, minmax(0,1fr))}
+.grid3{grid-template-columns: repeat(3, minmax(0,1fr))}
+@media (max-width: 900px){
+  .grid2,.grid3{grid-template-columns: 1fr}
+  .navLinks{margin-left:0}
+}
+.card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:16px;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(62,47,28,0.25);
+  cursor: pointer;
+}
+.card h3{margin:0 0 6px 0}
+.muted{color:var(--muted)}
+.hero{
+  display:grid; gap:14px;
+  padding:18px;
+  border-radius: calc(var(--radius) + 6px);
+  border:1px solid rgba(110,231,255,0.20);
+  background: linear-gradient(135deg, rgba(193,154,107,0.25), rgba(139,94,60,0.20));
+}
+.heroTitle{font-size: clamp(26px, 3.5vw, 40px); margin:0}
+.kbd{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  padding: 2px 8px;
+  border:1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  background: rgba(0,0,0,0.20);
+}
+.input, select, textarea{
+  width:100%;
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#f3e9dc;   /* vintage background */
+  color:#3e2f1c;        /* dark brown text */
+  outline:none;
+  font-family:inherit;
+}
+
+textarea::placeholder,
+.input::placeholder{
+  color:#8b7355;
+}
+.input::placeholder{
+  color:#4d2c02;
+}
+textarea{min-height: 90px; resize: vertical}
+.row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+.sep{height:1px; background: var(--border); margin: 12px 0}
+.tag{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.small{font-size: 13px}
+.footer{padding: 30px 0; color: var(--muted); text-align:center}
+.card img{
+  width: 100%;
+  height: 180px;        /* card image height */
+  object-fit: contain;  /* shows full image */
+  background: #f3e9dc;  /* vintage background for empty space */
+  border-radius: 10px;
+}
